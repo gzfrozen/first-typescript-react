@@ -1,3 +1,4 @@
+import Card from './Card';
 import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 
@@ -7,7 +8,7 @@ type ExpensesProps = {
 
 const Expense = ({ expenses }: ExpensesProps) => {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpenseItem
         id={expenses[0].id}
         title={expenses[0].title}
@@ -32,7 +33,7 @@ const Expense = ({ expenses }: ExpensesProps) => {
         amount={expenses[3].amount}
         date={expenses[3].date}
       />
-    </div>
+    </Card>
   );
 };
 
