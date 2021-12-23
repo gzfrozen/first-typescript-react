@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import { expenseDataType } from './components/NewExpense/ExpenseForm';
 
 const App = () => {
   const expenses = [
@@ -31,11 +32,16 @@ const App = () => {
     },
   ];
 
+  const onAddExpenseHandler = (expense: expenseDataType) => {
+    console.log('From App.tsx');
+    console.log(expense);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <NewExpense />
+        <NewExpense onAddExpenseHandler={onAddExpenseHandler} />
         <Expenses expenses={expenses} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
