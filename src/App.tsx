@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
   const expenses = [
@@ -34,6 +35,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <NewExpense />
         <Expenses expenses={expenses} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
