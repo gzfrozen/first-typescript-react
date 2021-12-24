@@ -2,21 +2,28 @@ import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
+import { useState } from 'react';
 
 type ExpensesProps = {
   expenses: { id: string; title: string; amount: number; date: Date }[];
 };
 
-const onFilterByYearHandler = (year: string) => {
-  console.log('From Expenses.tsx');
-  console.log(year);
-};
-
 const Expense = ({ expenses }: ExpensesProps) => {
+  const [year, setYear] = useState('');
+
+  const onFilterByYearHandler = (year: string) => {
+    console.log('From Expenses.tsx');
+    console.log(year);
+    setYear(year);
+  };
+
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter onFilterByYearHandler={onFilterByYearHandler} />
+        <ExpensesFilter
+          year={year}
+          onFilterByYearHandler={onFilterByYearHandler}
+        />
         <ExpenseItem
           id={expenses[0].id}
           title={expenses[0].title}

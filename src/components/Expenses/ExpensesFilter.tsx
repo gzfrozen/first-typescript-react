@@ -1,18 +1,19 @@
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler } from 'react';
 import './ExpensesFilter.css';
 
 type ExpensesFilterProps = {
+  year: string;
   onFilterByYearHandler: (year: string) => void;
 };
 
-const ExpensesFilter = ({ onFilterByYearHandler }: ExpensesFilterProps) => {
-  const [year, setYear] = useState('');
-
+const ExpensesFilter = ({
+  year,
+  onFilterByYearHandler,
+}: ExpensesFilterProps) => {
   const selectYearHandler: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    setYear(event.target.value);
     console.log('From ExpensesFilter.tsx');
-    console.log(year);
-    onFilterByYearHandler(year);
+    console.log(event.target.value);
+    onFilterByYearHandler(event.target.value);
   };
 
   return (
