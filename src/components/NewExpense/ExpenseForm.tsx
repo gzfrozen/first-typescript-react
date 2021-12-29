@@ -1,14 +1,9 @@
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { ExpenseItemProps } from '../Expenses/ExpenseItem';
 import './ExpenseForm.css';
 
-type expenseDataType = {
-  title: string;
-  amount: string;
-  date: Date;
-};
-
 type ExpenseFormProps = {
-  onSaveExpenseDataHandler: (enteredExpenseData: expenseDataType) => void;
+  onSaveExpenseDataHandler: (enteredExpenseData: ExpenseItemProps) => void;
 };
 
 const ExpenseForm = ({ onSaveExpenseDataHandler }: ExpenseFormProps) => {
@@ -45,9 +40,10 @@ const ExpenseForm = ({ onSaveExpenseDataHandler }: ExpenseFormProps) => {
   const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
-    const expenseData: expenseDataType = {
+    const expenseData: ExpenseItemProps = {
+      key: 'temp',
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: parseInt(enteredAmount),
       date: new Date(enteredDate),
     };
 
@@ -99,4 +95,3 @@ const ExpenseForm = ({ onSaveExpenseDataHandler }: ExpenseFormProps) => {
 };
 
 export default ExpenseForm;
-export type { expenseDataType };

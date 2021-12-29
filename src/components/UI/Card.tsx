@@ -2,7 +2,7 @@ import './Card.css';
 
 type ChildrenProps = {
   children: React.ReactNode;
-  className?: String;
+  className?: string;
 };
 
 const Card = ({ children, className }: ChildrenProps) => {

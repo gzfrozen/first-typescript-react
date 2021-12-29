@@ -1,13 +1,13 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
-import { expenseDataType } from './ExpenseForm';
+import { ExpenseItemProps } from '../Expenses/ExpenseItem';
 
 type NewExpenseProps = {
-  onAddExpenseHandler: (expense: expenseDataType) => void;
+  onAddExpenseHandler: (expense: ExpenseItemProps) => void;
 };
 
 const NewExpense = ({ onAddExpenseHandler }: NewExpenseProps) => {
-  const onSaveExpenseDataHandler = (enteredExpenseData: expenseDataType) => {
+  const onSaveExpenseDataHandler = (enteredExpenseData: ExpenseItemProps) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
