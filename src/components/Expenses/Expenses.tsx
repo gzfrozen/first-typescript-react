@@ -4,6 +4,7 @@ import { ExpenseItemProps } from './ExpenseItem';
 import './Expenses.css';
 import { useState } from 'react';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 type ExpensesProps = {
   expenses: ExpenseItemProps[];
@@ -22,19 +23,6 @@ const Expense = ({ expenses }: ExpensesProps) => {
     (expense) => expense.date.getFullYear().toString() === year
   );
 
-  // let expensesContent = [<p>No expenses found.</p>];
-
-  // if (filteredExpenses.length > 0) {
-  //   expensesContent = filteredExpenses.map((expense) => (
-  //     <ExpenseItem
-  //       key={expense.key}
-  //       title={expense.title}
-  //       amount={expense.amount}
-  //       date={expense.date}
-  //     />
-  //   ));
-  // }
-
   return (
     <div>
       <Card className="expenses">
@@ -42,6 +30,7 @@ const Expense = ({ expenses }: ExpensesProps) => {
           year={year}
           onFilterByYearHandler={onFilterByYearHandler}
         />
+        <ExpensesChart filteredExpenses={filteredExpenses} />
         <ExpensesList filteredExpenses={filteredExpenses} />
       </Card>
     </div>
