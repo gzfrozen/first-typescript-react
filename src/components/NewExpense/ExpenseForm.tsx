@@ -4,9 +4,13 @@ import './ExpenseForm.css';
 
 type ExpenseFormProps = {
   onSaveExpenseDataHandler: (enteredExpenseData: ExpenseItemProps) => void;
+  onCancelHandler: () => void;
 };
 
-const ExpenseForm = ({ onSaveExpenseDataHandler }: ExpenseFormProps) => {
+const ExpenseForm = ({
+  onSaveExpenseDataHandler,
+  onCancelHandler,
+}: ExpenseFormProps) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -88,6 +92,9 @@ const ExpenseForm = ({ onSaveExpenseDataHandler }: ExpenseFormProps) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={onCancelHandler}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
