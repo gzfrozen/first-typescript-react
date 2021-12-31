@@ -10,7 +10,7 @@ const NewExpense = ({ onAddExpenseHandler }: NewExpenseProps) => {
   const onSaveExpenseDataHandler = (enteredExpenseData: ExpenseItemProps) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.random().toString(),
+      key: Math.random().toString(),
     };
 
     console.log('From NewExpense.txt');
